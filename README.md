@@ -7,6 +7,12 @@ backend : des fichiers statiques et des données officielles 2026 embarquées.
 
 [![CI](https://github.com/jmicaux/le-releve/actions/workflows/ci.yml/badge.svg)](https://github.com/jmicaux/le-releve/actions/workflows/ci.yml) ![version](https://img.shields.io/badge/version-0.8.7-blue) ![vanilla](https://img.shields.io/badge/stack-vanilla_JS-f7df1e) ![no build](https://img.shields.io/badge/build-aucun-brightgreen) ![data](https://img.shields.io/badge/données-PLF_2026_+_INSEE-3b82f6)
 
+**🔗 Aperçu en ligne : [jmicaux.github.io/le-releve](https://jmicaux.github.io/le-releve/)**
+
+Si cette app te plaît, tu peux la soutenir :
+
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy_me_a_coffee-ffdd00?style=flat-square&logo=buymeacoffee&logoColor=1a1a1a)](https://buymeacoffee.com/jmicaux)
+
 > Prototype orienté **expérience visuelle** (façon Apple Health / Linear) plutôt que
 > portail Open Data. Vanilla JS, zéro dépendance runtime (hors ECharts pour les graphiques).
 
