@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Le Relevé — Les comptes de la France 2026</title>
+  <meta name="description" content="Les comptes de la France comme un relevé : entrées, sorties, écart et dette 2026. Chiffres officiels, à une échelle lisible. Pas d'opinion." />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f4f5f7" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)" />
+  <script>
+    // Applique le thème choisi avant le rendu (évite le flash).
+    (function () {
+      try {
+        var q = new URLSearchParams(location.search).get("theme");
+        var t = q === "dark" || q === "light" ? q : localStorage.getItem("atlas-theme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%232f5cff'/%3E%3Ctext x='50' y='73' font-size='64' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'%3E%E2%82%AC%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/css/base.css?v=0.8.7" />
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Basculer le thème">☾</button>
+
+<div style="min-height:100vh">
+
+  <div style="position:sticky;top:0;z-index:20;background:var(--topbar);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)">
+    <div style="max-width:1120px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;gap:16px">
+      <a href="index.html" aria-label="Accueil — Le Relevé" style="display:flex;align-items:center;gap:9px;text-decoration:none;color:inherit">
+        <span aria-hidden="true" style="width:22px;height:22px;border-radius:7px;background:var(--mark);color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center">€</span>
+        <span style="font-weight:600;font-size:15px;letter-spacing:-.01em">Le Relevé</span>
+        <span class="l-nav-tag" style="color:var(--mute);font-size:15px">Les comptes de la France · 2026</span>
+      </a>
+      <button id="app-version" type="button" class="l-nav-tag" style="border:1px solid var(--border);background:transparent;color:var(--faint);font-size:11px;font-weight:600;border-radius:999px;padding:2px 7px;letter-spacing:.02em;cursor:pointer" title="Notes de version"></button>
+      <span style="flex:1"></span>
+      <nav aria-label="Sections du site" style="display:flex;gap:4px">
+        <a href="entrees.html" style="padding:7px 14px;border-radius:999px;font-size:14px;color:var(--mute);text-decoration:none">Entrées</a>
+        <a href="sorties.html" style="padding:7px 14px;border-radius:999px;font-size:14px;color:var(--mute);text-decoration:none">Sorties</a>
+        <a href="dette.html" style="padding:7px 14px;border-radius:999px;font-size:14px;color:var(--mute);text-decoration:none">Dette</a>
+      </nav>
+    </div>
+  </div>
+
+  <main id="contenu" class="l-pad" style="max-width:1120px;margin:0 auto;padding:72px 32px 96px">
+
+    <header style="max-width:800px;animation:atlasIn .5s ease both">
+      <h1 class="l-hero-title" style="margin:0;font-size:60px;line-height:1.02;letter-spacing:-.04em;font-weight:700;text-wrap:balance">Les comptes de la France, comme un relevé</h1>
+      <p style="margin:20px 0 0;font-size:20px;line-height:1.5;color:var(--soft);text-wrap:pretty">Ce qui entre, ce qui sort, ce qui manque. Des chiffres officiels, à une échelle lisible. Pas d'opinion.</p>
+    </header>
+
+    <section style="margin-top:44px;background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:32px 34px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap">
+        <h2 style="margin:0;font-size:15px;font-weight:600;color:var(--mute);letter-spacing:.04em;text-transform:uppercase">Le relevé de l'année · tout l'argent public</h2>
+        <div id="scales" role="group" aria-label="Choisir l'échelle" style="display:flex;gap:4px;background:var(--pill);padding:4px;border-radius:999px"></div>
+      </div>
+
+      <div style="margin-top:26px;display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:center;gap:16px">
+          <span style="width:96px;font-size:14px;font-weight:600;color:var(--soft);flex-shrink:0">Entrées</span>
+          <span style="flex:1;min-width:0;display:block"><span id="bar-in" style="display:block;height:38px;border-radius:10px;background:var(--green);width:0"></span></span>
+          <span id="val-in" class="tnum" style="width:150px;text-align:right;font-size:19px;font-weight:700;flex-shrink:0">—</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px">
+          <span style="width:96px;font-size:14px;font-weight:600;color:var(--soft);flex-shrink:0">Sorties</span>
+          <span style="flex:1;min-width:0;display:block"><span id="bar-out" style="display:block;height:38px;border-radius:10px;background:var(--slate);width:0"></span></span>
+          <span id="val-out" class="tnum" style="width:150px;text-align:right;font-size:19px;font-weight:700;flex-shrink:0">—</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px">
+          <span style="width:96px;font-size:14px;font-weight:600;color:var(--soft);flex-shrink:0">Écart</span>
+          <span style="flex:1;min-width:0;display:block"><span id="bar-gap" style="display:block;height:38px;border-radius:10px;background:var(--red);width:0"></span></span>
+          <span id="val-gap" class="tnum" style="width:150px;text-align:right;font-size:19px;font-weight:700;color:var(--red-ink);flex-shrink:0">—</span>
+        </div>
+      </div>
+
+      <p id="sentence" aria-live="polite" style="margin:24px 0 0;padding-top:20px;border-top:1px solid var(--hair);font-size:16px;line-height:1.6;color:var(--soft);max-width:760px;text-wrap:pretty"></p>
+    </section>
+
+    <p style="margin:28px 0 12px;font-size:14px;color:var(--mute);line-height:1.6;max-width:760px;text-wrap:pretty">Tout est compté en <b style="color:var(--soft)">argent public</b> : l'État, la Sécurité sociale et les collectivités réunis. Seule la page Sorties zoome sur la part de l'État (un tiers du total), car c'est la seule détaillée ligne par ligne.</p>
+
+    <nav class="l-grid-3" aria-label="Explorer" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+      <a href="entrees.html" style="display:block;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:26px 28px;transition:border-color .15s, transform .15s" onmouseover="this.style.borderColor='var(--faint)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+        <div style="display:flex;align-items:baseline;gap:10px">
+          <span style="width:10px;height:10px;border-radius:3px;flex-shrink:0;background:var(--green)"></span>
+          <span style="font-size:13px;font-weight:600;color:var(--mute);letter-spacing:.04em;text-transform:uppercase">Entrées · tout l'argent public</span>
+        </div>
+        <div class="tnum" style="margin-top:14px;font-size:34px;font-weight:700;letter-spacing:-.03em">1 520 Md€</div>
+        <div style="margin-top:4px;font-size:20px;font-weight:700;letter-spacing:-.02em">D'où vient l'argent</div>
+        <p style="margin:10px 0 0;font-size:14.5px;line-height:1.55;color:var(--soft);text-wrap:pretty">Cotisations, TVA, impôt sur le revenu, impôt sur les sociétés — de la plus grosse source à la plus petite.</p>
+        <div style="margin-top:16px;font-size:14px;font-weight:600;color:var(--blue)">Voir les entrées →</div>
+      </a>
+      <a href="sorties.html" style="display:block;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:26px 28px;transition:border-color .15s, transform .15s" onmouseover="this.style.borderColor='var(--faint)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+        <div style="display:flex;align-items:baseline;gap:10px">
+          <span style="width:10px;height:10px;border-radius:3px;flex-shrink:0;background:var(--slate)"></span>
+          <span style="font-size:13px;font-weight:600;color:var(--mute);letter-spacing:.04em;text-transform:uppercase">Sorties · tout l'argent public</span>
+        </div>
+        <div class="tnum" style="margin-top:14px;font-size:34px;font-weight:700;letter-spacing:-.03em">1 672 Md€</div>
+        <div style="margin-top:4px;font-size:20px;font-weight:700;letter-spacing:-.02em">Où va l'argent</div>
+        <p style="margin:10px 0 0;font-size:14.5px;line-height:1.55;color:var(--soft);text-wrap:pretty">À quoi il sert : retraites, santé, éducation, intérêts de la dette… et le détail du budget de l'État, jusqu'à la ligne.</p>
+        <div style="margin-top:16px;font-size:14px;font-weight:600;color:var(--blue)">Voir les sorties →</div>
+      </a>
+      <a href="dette.html" style="display:block;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:26px 28px;transition:border-color .15s, transform .15s" onmouseover="this.style.borderColor='var(--faint)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+        <div style="display:flex;align-items:baseline;gap:10px">
+          <span style="width:10px;height:10px;border-radius:3px;flex-shrink:0;background:var(--red)"></span>
+          <span style="font-size:13px;font-weight:600;color:var(--mute);letter-spacing:.04em;text-transform:uppercase">Dette · tout l'argent public</span>
+        </div>
+        <div class="tnum" style="margin-top:14px;font-size:34px;font-weight:700;letter-spacing:-.03em">3 547 Md€</div>
+        <div style="margin-top:4px;font-size:20px;font-weight:700;letter-spacing:-.02em">Ce qui s'accumule</div>
+        <p style="margin:10px 0 0;font-size:14.5px;line-height:1.55;color:var(--soft);text-wrap:pretty">L'évolution depuis 1980, les périodes de hausse, le coût des intérêts.</p>
+        <div style="margin-top:16px;font-size:14px;font-weight:600;color:var(--blue)">Voir la dette →</div>
+      </a>
+    </nav>
+
+    <section style="margin-top:56px">
+      <h2 style="margin:0 0 6px;font-size:26px;font-weight:700;letter-spacing:-.025em">Deux repères pour tout comprendre</h2>
+      <p style="margin:0 0 20px;font-size:16px;color:var(--soft);line-height:1.6;max-width:680px;text-wrap:pretty">Les milliards ne parlent à personne. Chaque montant est donc aussi donné en « sur 100 € ».</p>
+      <div class="l-grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:24px 26px">
+          <div style="font-size:15px;font-weight:700;letter-spacing:-.015em">Sur 100 €</div>
+          <p style="margin:8px 0 14px;font-size:14px;line-height:1.55;color:var(--soft);text-wrap:pretty">La part de chaque poste ramenée à 100 €. La meilleure façon de comparer deux lignes, sans laisser croire que chacun paie la même chose.</p>
+          <div class="tnum" style="font-size:13.5px;color:var(--mute);border-top:1px solid var(--hair);padding-top:12px;line-height:1.5">Exemple : l'éducation, c'est 19,70 € sur 100 € dépensés par l'État.</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:24px 26px">
+          <div style="font-size:15px;font-weight:700;letter-spacing:-.015em">En milliards</div>
+          <p style="margin:8px 0 14px;font-size:14px;line-height:1.55;color:var(--soft);text-wrap:pretty">Le montant tel qu'il est publié. Pour retrouver le chiffre à la source.</p>
+          <div class="tnum" style="font-size:13.5px;color:var(--mute);border-top:1px solid var(--hair);padding-top:12px;line-height:1.5">Exemple : 486,3 Md€ de dépenses prévues pour l'État en 2026.</div>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:56px;background:var(--inv-surface);color:var(--inv-ink);border-radius:22px;padding:36px 38px">
+      <h2 style="margin:0;font-size:24px;font-weight:700;letter-spacing:-.025em;color:var(--inv-ink)">Ce que Le Relevé ne fait pas</h2>
+      <div class="l-grid-3" style="margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
+        <div>
+          <div style="font-size:16px;font-weight:700;letter-spacing:-.015em;color:var(--inv-ink)">Aucune recommandation</div>
+          <p style="margin:8px 0 0;font-size:14.5px;line-height:1.6;color:var(--inv-soft);text-wrap:pretty">Ni plus, ni moins, ni autrement. On montre les montants.</p>
+        </div>
+        <div>
+          <div style="font-size:16px;font-weight:700;letter-spacing:-.015em;color:var(--inv-ink)">Aucune attribution</div>
+          <p style="margin:8px 0 0;font-size:14.5px;line-height:1.6;color:var(--inv-soft);text-wrap:pretty">Les hausses sont datées et remises en contexte. Personne n'est désigné.</p>
+        </div>
+        <div>
+          <div style="font-size:16px;font-weight:700;letter-spacing:-.015em;color:var(--inv-ink)">Les désaccords affichés</div>
+          <p style="margin:8px 0 0;font-size:14.5px;line-height:1.6;color:var(--inv-soft);text-wrap:pretty">Quand les spécialistes divergent, les deux lectures sont données à égalité.</p>
+        </div>
+      </div>
+      <p style="margin:26px 0 0;padding-top:22px;border-top:1px solid var(--inv-hair);font-size:14px;color:var(--inv-mute);line-height:1.6;max-width:760px;text-wrap:pretty">Chaque montant renvoie à sa source officielle.</p>
+    </section>
+
+    <section style="margin-top:56px">
+      <h2 style="margin:0 0 16px;font-size:26px;font-weight:700;letter-spacing:-.025em">Les pièges de lecture</h2>
+      <div class="l-grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:22px 24px">
+          <div style="font-size:15.5px;font-weight:700;letter-spacing:-.015em;text-wrap:pretty">486 Md€ ou 1 672 Md€ ?</div>
+          <p style="margin:9px 0 0;font-size:14.5px;line-height:1.6;color:var(--soft);text-wrap:pretty">Les deux sont exacts. 486 Md€ : l'État seul. 1 672 Md€ : l'État, la Sécurité sociale et les collectivités réunis.</p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:22px 24px">
+          <div style="font-size:15.5px;font-weight:700;letter-spacing:-.015em;text-wrap:pretty">Le déficit et la dette, quelle différence ?</div>
+          <p style="margin:9px 0 0;font-size:14.5px;line-height:1.6;color:var(--soft);text-wrap:pretty">Le déficit, c'est l'écart d'une année : 152 Md€. La dette, c'est le cumul des déficits passés : 3 547 Md€.</p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:22px 24px">
+          <div style="font-size:15.5px;font-weight:700;letter-spacing:-.015em;text-wrap:pretty">Pourquoi la dette est-elle donnée en pourcentage ?</div>
+          <p style="margin:9px 0 0;font-size:14.5px;line-height:1.6;color:var(--soft);text-wrap:pretty">Parce que 100 Md€ de 1990 ne valent pas 100 Md€ de 2026. La comparer à ce que le pays produit en un an permet de suivre l'évolution.</p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:22px 24px">
+          <div style="font-size:15.5px;font-weight:700;letter-spacing:-.015em;text-wrap:pretty">Les chiffres 2026 sont-ils définitifs ?</div>
+          <p style="margin:9px 0 0;font-size:14.5px;line-height:1.6;color:var(--soft);text-wrap:pretty">Non. Ce sont des prévisions. Les sommes réelles sont connues l'année suivante et diffèrent toujours.</p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:22px 24px">
+          <div style="font-size:15.5px;font-weight:700;letter-spacing:-.015em;text-wrap:pretty">Entrées et sorties, la même année ?</div>
+          <p style="margin:9px 0 0;font-size:14.5px;line-height:1.6;color:var(--soft);text-wrap:pretty">Presque, mais pas la même année. Ce relevé donne les <b style="color:var(--ink)">prévisions du budget 2026</b>. Le détail « à quoi sert l'argent » vient des <b style="color:var(--ink)">derniers comptes complets connus, 2024</b> (INSEE/Eurostat), car la répartition par fonction n'est établie qu'après coup. Les grands totaux sont proches (~1 672 Md€) : l'un est prévu, l'autre constaté.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer style="margin-top:48px;padding-top:24px;border-top:1px solid var(--border);font-size:13px;color:var(--mute);line-height:1.6;max-width:840px">
+      Sources : budget de l'État 2026, <a href="https://data.economie.gouv.fr/explore/dataset/plf-2026-budget-vert/" rel="noopener">data.economie.gouv.fr</a>, comptes nationaux INSEE, Eurostat. Population : 68,6 M (INSEE, 2026).
+      <br /><br />
+      <b style="color:var(--soft)">Prototype.</b> Dépenses : données publiques 2026. Recettes et dette : ordres de grandeur saisis à la main.
+    </footer>
+  </main>
+</div>
+
+<script src="assets/js/data.js?v=0.8.7"></script>
+<script src="assets/js/version.js?v=0.8.7"></script>
+<script src="assets/js/theme.js?v=0.8.7"></script>
+<script src="assets/js/app.js?v=0.8.7"></script>
+</body>
+</html>

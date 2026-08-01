@@ -1,0 +1,207 @@
+{
+  "meta": {
+    "year": 2026,
+    "unit": "EUR",
+    "population": 68600000,
+    "note": "Structure des entrées publiques par source, à deux périmètres : l'État seul et toutes les administrations publiques (APU). Ordres de grandeur saisis à la main — proportions justes, décimales non garanties — calés sur LFI 2026, INSEE (comptes nationaux) et FIPECO.",
+    "sources": [
+      "LFI 2026 — recettes de l'État",
+      "INSEE — Compte des administrations publiques 2025",
+      "FIPECO — répartition des prélèvements obligatoires 2025"
+    ]
+  },
+  "scopes": {
+    "etat": {
+      "label": "État",
+      "badge": "argent de l'État",
+      "hint": "L'État seul — celui qui paie les 486 Md€ de sorties.",
+      "sorties": 486300000000,
+      "tree": [
+        {
+          "label": "TVA (part revenant à l'État)",
+          "amount": 105000000000,
+          "note": "Prélevée sur presque tout ce que vous achetez",
+          "children": [
+            {
+              "label": "TVA à 20 % (taux normal)",
+              "amount": 78000000000
+            },
+            {
+              "label": "TVA à 5,5 % et 10 % (taux réduits)",
+              "amount": 24000000000
+            },
+            {
+              "label": "Autres cas particuliers",
+              "amount": 3000000000
+            }
+          ]
+        },
+        {
+          "label": "Impôt sur le revenu",
+          "amount": 96000000000,
+          "note": "Payé par un foyer fiscal sur deux",
+          "children": [
+            {
+              "label": "Prélevé directement sur les salaires et les retraites",
+              "amount": 82000000000
+            },
+            {
+              "label": "Revenus de l'épargne et des placements",
+              "amount": 11000000000
+            },
+            {
+              "label": "Ajustements et autres revenus",
+              "amount": 3000000000
+            }
+          ]
+        },
+        {
+          "label": "Impôt sur les sociétés",
+          "amount": 62000000000,
+          "note": "Prélevé sur les bénéfices des entreprises",
+          "children": [
+            {
+              "label": "Versements des grandes entreprises",
+              "amount": 44000000000
+            },
+            {
+              "label": "Petites et moyennes entreprises",
+              "amount": 12000000000
+            },
+            {
+              "label": "Contributions exceptionnelles",
+              "amount": 6000000000
+            }
+          ]
+        },
+        {
+          "label": "Autres impôts et taxes",
+          "amount": 55000000000,
+          "note": "Successions, ventes de biens, taxes propres à certains secteurs",
+          "children": [
+            {
+              "label": "Droits de succession et de donation",
+              "amount": 20000000000
+            },
+            {
+              "label": "Taxes sur les ventes de biens et les actes officiels",
+              "amount": 12000000000
+            },
+            {
+              "label": "Taxe sur les transactions financières",
+              "amount": 3000000000
+            },
+            {
+              "label": "Impôt sur la fortune immobilière",
+              "amount": 2000000000
+            },
+            {
+              "label": "Taxes sectorielles diverses",
+              "amount": 18000000000
+            }
+          ]
+        },
+        {
+          "label": "Ressources hors impôts",
+          "amount": 22000000000,
+          "note": "Amendes, ventes de services, bénéfices d'entreprises publiques",
+          "children": [
+            {
+              "label": "Bénéfices des entreprises dont l'État est actionnaire",
+              "amount": 8000000000
+            },
+            {
+              "label": "Amendes et sanctions",
+              "amount": 3000000000
+            },
+            {
+              "label": "Ventes de biens et de services",
+              "amount": 6000000000
+            },
+            {
+              "label": "Recettes diverses",
+              "amount": 5000000000
+            }
+          ]
+        },
+        {
+          "label": "Taxes sur les carburants et l'énergie",
+          "amount": 17000000000,
+          "note": "Essence, diesel, fioul",
+          "children": []
+        }
+      ]
+    },
+    "apu": {
+      "label": "Tout l'argent public",
+      "badge": "État, Sécurité sociale, communes et régions",
+      "hint": "État, Sécurité sociale et collectivités réunis.",
+      "sorties": 1672000000000,
+      "tree": [
+        {
+          "label": "Cotisations sur les salaires",
+          "amount": 440000000000,
+          "note": "Prélevées sur chaque salaire, part employeur et part salarié",
+          "children": [
+            {
+              "label": "Part payée par les employeurs",
+              "amount": 283000000000
+            },
+            {
+              "label": "Part payée par les salariés et les indépendants",
+              "amount": 157000000000
+            }
+          ]
+        },
+        {
+          "label": "Autres impôts et taxes",
+          "amount": 262000000000,
+          "note": "Tabac, alcool, énergie, environnement, taxes propres à certains secteurs",
+          "children": []
+        },
+        {
+          "label": "TVA",
+          "amount": 220000000000,
+          "note": "Partagée entre l'État, la Sécurité sociale et les collectivités",
+          "children": []
+        },
+        {
+          "label": "CSG et CRDS",
+          "amount": 152000000000,
+          "note": "Prélèvements sur tous les revenus, salaires comme épargne",
+          "children": []
+        },
+        {
+          "label": "Ressources hors impôts",
+          "amount": 151000000000,
+          "note": "Ventes de services publics, redevances, bénéfices d'entreprises publiques",
+          "children": []
+        },
+        {
+          "label": "Impôt sur le revenu",
+          "amount": 101000000000,
+          "note": "Payé par un foyer fiscal sur deux",
+          "children": []
+        },
+        {
+          "label": "Impôts locaux",
+          "amount": 94000000000,
+          "note": "Taxe foncière et taxes payées par les entreprises",
+          "children": []
+        },
+        {
+          "label": "Impôt sur les sociétés",
+          "amount": 65000000000,
+          "note": "Prélevé sur les bénéfices des entreprises",
+          "children": []
+        },
+        {
+          "label": "Taxes sur l'énergie",
+          "amount": 35000000000,
+          "note": "Carburants et électricité",
+          "children": []
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Le Relevé — Sorties · budget de l'État 2026</title>
+  <meta name="description" content="Où va l'argent de l'État en 2026 : 486 Md€, du grand thème à la ligne la plus fine. Drill-down, filtre et trois modes de lecture." />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f4f5f7" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)" />
+  <script>
+    (function () {
+      try {
+        var q = new URLSearchParams(location.search).get("theme");
+        var t = q === "dark" || q === "light" ? q : localStorage.getItem("atlas-theme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%232f5cff'/%3E%3Ctext x='50' y='73' font-size='64' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'%3E%E2%82%AC%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/css/base.css?v=0.8.7" />
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Basculer le thème">☾</button>
+
+<div style="min-height:100vh">
+
+  <div style="position:sticky;top:0;z-index:20;background:var(--topbar);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)">
+    <div style="max-width:1120px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;gap:16px">
+      <a href="index.html" style="display:flex;align-items:center;gap:9px;text-decoration:none;color:inherit">
+        <span aria-hidden="true" style="width:22px;height:22px;border-radius:7px;background:var(--mark);color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center">€</span>
+        <span style="font-weight:600;font-size:15px;letter-spacing:-.01em">Le Relevé</span>
+        <span class="l-nav-tag" style="color:var(--mute);font-size:15px">Les comptes de la France · 2026</span>
+      </a>
+      <button id="app-version" type="button" class="l-nav-tag" style="border:1px solid var(--border);background:transparent;color:var(--faint);font-size:11px;font-weight:600;border-radius:999px;padding:2px 7px;letter-spacing:.02em;cursor:pointer" title="Notes de version"></button>
+      <span style="flex:1"></span>
+      <nav aria-label="Sections du site" style="display:flex;gap:4px">
+        <a href="entrees.html" style="padding:7px 14px;border-radius:999px;font-size:14px;color:var(--mute);text-decoration:none">Entrées</a>
+        <span aria-current="page" style="padding:7px 14px;border-radius:999px;font-size:14px;font-weight:600;background:var(--ink);color:var(--bg)">Sorties</span>
+        <a href="dette.html" style="padding:7px 14px;border-radius:999px;font-size:14px;color:var(--mute);text-decoration:none">Dette</a>
+      </nav>
+    </div>
+  </div>
+
+  <main id="contenu" class="l-pad" style="max-width:1120px;margin:0 auto;padding:56px 32px 96px">
+
+    <nav id="breadcrumb" aria-label="Fil d'Ariane" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;width:100%;font-size:14px;margin:0 0 22px;padding-bottom:14px;border-bottom:1px solid var(--border)"></nav>
+
+    <header style="max-width:720px;animation:atlasIn .5s ease both">
+      <h1 class="l-hero-title" style="margin:0;font-size:52px;line-height:1.04;letter-spacing:-.035em;font-weight:700">Le relevé des sorties</h1>
+      <p id="lead" style="margin:16px 0 0;font-size:19px;line-height:1.55;color:var(--soft);text-wrap:pretty"></p>
+    </header>
+
+    <div id="world" role="group" aria-label="Choisir la vue" style="margin-top:28px;display:inline-flex;gap:4px;background:var(--pill);padding:4px;border-radius:999px"></div>
+
+    <section id="kpis" class="l-grid-2" aria-label="Chiffres clés" style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px"></section>
+
+    <section style="margin-top:44px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap">
+        <h2 id="band-title" style="margin:0;font-size:22px;font-weight:700;letter-spacing:-.02em"></h2>
+        <p style="margin:0;font-size:14px;color:var(--mute)">Survolez une part pour la nommer</p>
+      </div>
+      <div id="band" style="margin-top:16px;display:flex;gap:3px;height:64px;border-radius:14px;overflow:hidden;background:var(--pill)"></div>
+      <p id="band-sentence" style="margin:14px 0 0;font-size:15px;color:var(--soft);line-height:1.6;text-wrap:pretty"></p>
+    </section>
+
+    <section style="margin-top:48px">
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:18px">
+        <div id="modes" role="group" aria-label="Mode de lecture" style="display:flex;gap:4px;background:var(--pill);padding:4px;border-radius:999px"></div>
+        <p id="mode-hint" style="margin:0;font-size:14px;color:var(--mute);flex:1;min-width:200px"></p>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:flex-end;gap:12px;flex-wrap:wrap">
+        <label style="display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:8px 16px;min-width:260px;flex:0 1 320px">
+          <span aria-hidden="true" style="color:var(--mute);font-size:14px">⌕</span>
+          <input id="query" type="search" placeholder="Filtrer par nom…" aria-label="Filtrer les lignes par nom" style="border:0;outline:0;background:transparent;font-size:14px;width:100%;color:var(--ink)" />
+        </label>
+      </div>
+      <div id="backbar"></div>
+      <p id="count" style="margin:18px 0 0;font-size:14px;color:var(--mute)" aria-live="polite"></p>
+      <div id="rows" style="margin-top:14px;display:flex;flex-direction:column;gap:8px"></div>
+      <button id="more" type="button" hidden style="margin-top:12px;width:100%;border:1px dashed var(--faint);background:transparent;color:var(--soft);border-radius:16px;padding:14px;font-size:14px;font-weight:600;cursor:pointer"></button>
+      <p id="empty" hidden style="margin:24px 0 0;font-size:15px;color:var(--mute)">Aucune ligne ne correspond à ce filtre.</p>
+    </section>
+
+    <section id="recap-section" style="margin-top:52px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:28px 30px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:34px">
+        <div>
+          <h2 style="margin:0;font-size:17px;font-weight:700;letter-spacing:-.02em">486 Md€, ce n'est pas tout</h2>
+          <p style="margin:10px 0 0;font-size:15px;line-height:1.6;color:var(--soft);text-wrap:pretty">Le budget de l'État (486 Md€) est <b style="color:var(--ink)">la plus grosse part qu'on peut détailler ligne par ligne</b>. Le reste — Sécurité sociale et collectivités — porte le total public à environ 1 672 Md€ (vue « Détail des dépenses publiques »).</p>
+        </div>
+        <div id="recap" style="display:flex;flex-direction:column;gap:10px;justify-content:center"></div>
+      </div>
+    </section>
+
+    <div style="margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+      <span id="source-badge" aria-live="polite" style="font-size:13px;color:var(--mute)"></span>
+      <button id="refresh" type="button" style="border:1px solid var(--border);background:var(--surface);color:var(--soft);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:600;cursor:pointer">Rafraîchir</button>
+    </div>
+
+    <footer style="margin-top:20px;font-size:13px;color:var(--mute);line-height:1.6">
+      Sources : « à quoi sert l'argent » = dépenses par fonction (COFOG) <a href="https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table?lang=fr" rel="noopener">Eurostat</a>, dernière année complète 2024 · « détail de l'État » = <a href="https://data.economie.gouv.fr/explore/dataset/plf-2026-budget-vert/" rel="noopener">budget vert PLF 2026</a>. Population : 68,6 M (INSEE).
+    </footer>
+  </main>
+</div>
+
+<script src="assets/js/data.js?v=0.8.7"></script>
+<script src="assets/js/datasource.js?v=0.8.7"></script>
+<script src="assets/js/version.js?v=0.8.7"></script>
+<script src="assets/js/theme.js?v=0.8.7"></script>
+<script src="assets/js/sorties.js?v=0.8.7"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "le-releve",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Comprendre les finances publiques françaises en 5 minutes.",
+  "type": "module",
+  "scripts": {
+    "data": "node scripts/fetch-data.mjs && node scripts/build.mjs",
+    "build": "node scripts/build.mjs",
+    "serve": "node scripts/serve.mjs"
+  },
+  "engines": { "node": ">=18" }
+}

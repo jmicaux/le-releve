@@ -1,0 +1,26 @@
+{
+  "sources": [
+    {
+      "ref": "lfi-2026",
+      "title": "Loi de finances pour 2026 (LOI n° 2026-103 du 19 février 2026)",
+      "publisher": "Légifrance / Ministère de l'Économie",
+      "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053508155",
+      "figures": "Déficit public 152,5 milliards d'euros (objectif ramené à 4,7 % du PIB après 5,4 % en 2025) ; dépenses publiques +1,7 % en valeur (≈ 56,4 % du PIB) ; prélèvements obligatoires +43 milliards d'euros soit +3,3 % (≈ 43,9 % du PIB)."
+    },
+    {
+      "ref": "plf-2026-budget-vert",
+      "title": "PLF 2026 - Budget vert (dépenses de l'État par mission)",
+      "publisher": "Ministère de l'Économie — data.economie.gouv.fr",
+      "url": "https://data.economie.gouv.fr/explore/dataset/plf-2026-budget-vert/",
+      "api": "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/plf-2026-budget-vert/records",
+      "figures": "Crédits budgétaires PLF 2026 (CP) agrégés par mission — total ≈ 479,5 milliards d'euros."
+    },
+    {
+      "ref": "insee-dette-2026",
+      "title": "Dette publique — comptes nationaux trimestriels",
+      "publisher": "INSEE",
+      "url": "https://www.insee.fr/fr/statistiques/9010340",
+      "figures": "Dette publique 3 536 milliards d'euros, soit 117,5 % du PIB à fin T1 2026 (≈ 3 547 milliards d'euros mi-2026)."
+    }
+  ]
+}

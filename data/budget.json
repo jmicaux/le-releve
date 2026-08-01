@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "year": 2026,
+    "scope": "Ensemble des administrations publiques (APU)",
+    "unit": "EUR",
+    "population": 68600000,
+    "populationNote": "Population France ≈ 68,6 millions d'habitants (INSEE, 2026).",
+    "note": "Agrégats « toutes administrations publiques » (État + Sécurité sociale + collectivités). Chiffres officiels arrondis, loi de finances 2026 (LOI n° 2026-103 du 19 février 2026) et comptes nationaux INSEE."
+  },
+  "releve": {
+    "scope": "Ensemble des administrations publiques (APU)",
+    "entrees": 1520000000000,
+    "sorties": 1672000000000,
+    "ecart": 152000000000,
+    "etatEntrees": 357000000000,
+    "etatEntreesProvisoire": true,
+    "dette": 3547000000000,
+    "note": "« Entrées », « sorties » et « dette » agrègent toutes les administrations publiques. Les montants « argent de l'État » (357 et 486 Md€) ne couvrent que l'État. Les recettes de l'État (357 Md€) sont un ordre de grandeur saisi à la main en attendant revenues.json."
+  },
+  "insight": "Cette année, la France dépense environ 152 milliards d'euros de plus qu'elle ne perçoit.",
+  "insightSub": "Ces ~152 milliards d'euros manquants sont empruntés : chaque année de déficit vient s'ajouter à la dette. C'est pourquoi la dette grimpe, même quand les recettes augmentent.",
+  "actions": [
+    {
+      "key": "depenses",
+      "label": "Où va l'argent ?",
+      "icon": "💸",
+      "target": "depenses"
+    },
+    {
+      "key": "recettes",
+      "label": "D'où vient l'argent ?",
+      "icon": "💰",
+      "target": "recettes"
+    },
+    {
+      "key": "changement",
+      "label": "Ce qui change",
+      "icon": "📈",
+      "target": "annee"
+    },
+    {
+      "key": "pourquoi",
+      "label": "Pourquoi ?",
+      "icon": "❓",
+      "target": "deficit"
+    }
+  ]
+}

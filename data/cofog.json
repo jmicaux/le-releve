@@ -1,0 +1,345 @@
+{
+  "meta": {
+    "year": 2024,
+    "scope": "Toutes les administrations publiques (État, Sécurité sociale, collectivités)",
+    "unit": "EUR",
+    "population": 68600000,
+    "classification": "Dépenses par fonction (COFOG)",
+    "total": 1671793800000,
+    "note": "Dépenses de toutes les administrations publiques ventilées par fonction (« à quoi sert l'argent »), classification COFOG. Dernière année disponible : 2024. Les montants 2026 (budget) ne sont pas encore ventilés par fonction ; c'est une statistique établie après coup.",
+    "source": {
+      "portal": "ec.europa.eu/eurostat",
+      "dataset": "gov_10a_exp",
+      "api": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?format=JSON&lang=fr&unit=MIO_EUR&na_item=TE&sector=S13&geo=FR&time=2024",
+      "fetchedAt": "2026-07-29T20:13:30.773Z"
+    }
+  },
+  "tree": [
+    {
+      "key": "GF10",
+      "label": "Protection sociale",
+      "amount": 693028800000,
+      "children": [
+        {
+          "label": "Vieillesse",
+          "amount": 391954300000
+        },
+        {
+          "label": "Maladie et invalidité",
+          "amount": 83898900000
+        },
+        {
+          "label": "Famille et enfants",
+          "amount": 66711400000
+        },
+        {
+          "label": "Chômage",
+          "amount": 48520900000
+        },
+        {
+          "label": "Survivants",
+          "amount": 40608300000
+        },
+        {
+          "label": "Exclusion sociale n.c.a.",
+          "amount": 36460800000
+        },
+        {
+          "label": "Logement",
+          "amount": 21146700000
+        },
+        {
+          "label": "Protection sociale n.c.a.",
+          "amount": 3727600000
+        }
+      ]
+    },
+    {
+      "key": "GF07",
+      "label": "Santé",
+      "amount": 261156300000,
+      "children": [
+        {
+          "label": "Services hospitaliers",
+          "amount": 109338100000
+        },
+        {
+          "label": "Services ambulatoires",
+          "amount": 91789000000
+        },
+        {
+          "label": "Produits, appareils et matériels médicaux",
+          "amount": 43714600000
+        },
+        {
+          "label": "Services de santé publique",
+          "amount": 7958300000
+        },
+        {
+          "label": "R & D dans le domaine de la santé",
+          "amount": 6708300000
+        },
+        {
+          "label": "Santé n.c.a.",
+          "amount": 1647900000
+        }
+      ]
+    },
+    {
+      "key": "GF01",
+      "label": "Services publics généraux",
+      "amount": 181103200000,
+      "children": [
+        {
+          "label": "Opérations concernant la dette publique",
+          "amount": 58870200000
+        },
+        {
+          "label": "Services généraux",
+          "amount": 53780400000
+        },
+        {
+          "label": "Fonctionnement des organes exécutifs et législatifs, affaires financières et fiscales, affaires étrangères",
+          "amount": 42818400000
+        },
+        {
+          "label": "Recherche fondamentale",
+          "amount": 19880500000
+        },
+        {
+          "label": "Aide économique extérieure",
+          "amount": 4880900000
+        },
+        {
+          "label": "Services généraux des administrations publiques n.c.a.",
+          "amount": 866600000
+        },
+        {
+          "label": "R & D concernant des services généraux des administrations publiques",
+          "amount": 6100000
+        },
+        {
+          "label": "Transferts de caractère général entre administrations publiques",
+          "amount": 100000
+        }
+      ]
+    },
+    {
+      "key": "GF04",
+      "label": "Action économique",
+      "amount": 166072800000,
+      "children": [
+        {
+          "label": "Transports",
+          "amount": 60688900000
+        },
+        {
+          "label": "Tutelle de l'économie générale, des échanges et de l'emploi",
+          "amount": 45256900000
+        },
+        {
+          "label": "R & D concernant les affaires économiques",
+          "amount": 21428700000
+        },
+        {
+          "label": "Combustibles et énergie",
+          "amount": 15460800000
+        },
+        {
+          "label": "Autres branches d'activité",
+          "amount": 11183000000
+        },
+        {
+          "label": "Agriculture, sylviculture, pêche et chasse",
+          "amount": 6198700000
+        },
+        {
+          "label": "Affaires économiques n.c.a.",
+          "amount": 2609300000
+        },
+        {
+          "label": "Industries extractives et manufacturières, construction",
+          "amount": 1625400000
+        },
+        {
+          "label": "Communications",
+          "amount": 1621100000
+        }
+      ]
+    },
+    {
+      "key": "GF09",
+      "label": "Éducation",
+      "amount": 148639600000,
+      "children": [
+        {
+          "label": "Enseignement secondaire",
+          "amount": 63778900000
+        },
+        {
+          "label": "Enseignement préélémentaire et primaire",
+          "amount": 42176400000
+        },
+        {
+          "label": "Services annexes à l'enseignement",
+          "amount": 20022900000
+        },
+        {
+          "label": "Enseignement supérieur",
+          "amount": 12307900000
+        },
+        {
+          "label": "Enseignement non défini par niveau",
+          "amount": 8622300000
+        },
+        {
+          "label": "Enseignement postsecondaire non supérieur",
+          "amount": 1156400000
+        },
+        {
+          "label": "Enseignement n.c.a.",
+          "amount": 574700000
+        }
+      ]
+    },
+    {
+      "key": "GF02",
+      "label": "Défense",
+      "amount": 54199000000,
+      "children": [
+        {
+          "label": "Défense militaire",
+          "amount": 47701900000
+        },
+        {
+          "label": "Défense n.c.a.",
+          "amount": 2580000000
+        },
+        {
+          "label": "Aide militaire à des pays étrangers",
+          "amount": 2006600000
+        },
+        {
+          "label": "R & D concernant la défense",
+          "amount": 1682000000
+        },
+        {
+          "label": "Défense civile",
+          "amount": 228600000
+        }
+      ]
+    },
+    {
+      "key": "GF03",
+      "label": "Sécurité et justice",
+      "amount": 52113000000,
+      "children": [
+        {
+          "label": "Services de police",
+          "amount": 28896200000
+        },
+        {
+          "label": "Tribunaux",
+          "amount": 8295000000
+        },
+        {
+          "label": "Services de protection civile",
+          "amount": 7937400000
+        },
+        {
+          "label": "Administration pénitentiaire",
+          "amount": 5119800000
+        },
+        {
+          "label": "Ordre et sécurité publics n.c.a.",
+          "amount": 1864600000
+        }
+      ]
+    },
+    {
+      "key": "GF08",
+      "label": "Culture, sport et loisirs",
+      "amount": 43067600000,
+      "children": [
+        {
+          "label": "Services culturels",
+          "amount": 18963000000
+        },
+        {
+          "label": "Services récréatifs et sportifs",
+          "amount": 15568600000
+        },
+        {
+          "label": "Services de radiodiffusion, de télévision et d'édition",
+          "amount": 7560400000
+        },
+        {
+          "label": "Culte et autres services communautaires",
+          "amount": 744200000
+        },
+        {
+          "label": "Loisirs, culture et culte n.c.a.",
+          "amount": 231500000
+        }
+      ]
+    },
+    {
+      "key": "GF06",
+      "label": "Logement et cadre de vie",
+      "amount": 42128600000,
+      "children": [
+        {
+          "label": "Équipements collectifs",
+          "amount": 27229900000
+        },
+        {
+          "label": "Logements",
+          "amount": 8415000000
+        },
+        {
+          "label": "Alimentation en eau",
+          "amount": 2847800000
+        },
+        {
+          "label": "Éclairage public",
+          "amount": 1819200000
+        },
+        {
+          "label": "Logement et équipements collectifs n.c.a.",
+          "amount": 1816700000
+        }
+      ]
+    },
+    {
+      "key": "GF05",
+      "label": "Environnement",
+      "amount": 30285100000,
+      "children": [
+        {
+          "label": "Gestion des déchets",
+          "amount": 15862400000
+        },
+        {
+          "label": "Gestion des eaux usées",
+          "amount": 5200000000
+        },
+        {
+          "label": "Lutte contre la pollution",
+          "amount": 4268600000
+        },
+        {
+          "label": "R & D dans le domaine de la protection de l'environnement",
+          "amount": 1759800000
+        },
+        {
+          "label": "Préservation de la diversité biologique et protection de la nature",
+          "amount": 1678400000
+        },
+        {
+          "label": "Protection de l'environnement n.c.a.",
+          "amount": 1515900000
+        }
+      ]
+    }
+  ]
+}

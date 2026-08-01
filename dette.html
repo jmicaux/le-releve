@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Le Relevé — Dette · 1980 → 2026</title>
+  <meta name="description" content="L'évolution de la dette publique française 1980–2026 : montant, intérêts, périodes de hausse et les deux lectures des économistes." />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f4f5f7" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)" />
+  <script>
+    (function () {
+      try {
+        var q = new URLSearchParams(location.search).get("theme");
+        var t = q === "dark" || q === "light" ? q : localStorage.getItem("atlas-theme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%232f5cff'/%3E%3Ctext x='50' y='73' font-size='64' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'%3E%E2%82%AC%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/css/base.css?v=0.8.7" />
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Basculer le thème">☾</button>
+
+<div style="min-height:100vh">
+
+  <div style="position:sticky;top:0;z-index:20;background:var(--topbar);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)">
+    <div style="max-width:1120px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;gap:16px">
+      <a href="index.html" style="display:flex;align-items:center;gap:9px;text-decoration:none;color:inherit">
+        <span aria-hidden="true" style="width:22px;height:22px;border-radius:7px;background:var(--mark);color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center">€</span>
+        <span style="font-weight:600;font-size:15px;letter-spacing:-.01em">Le Relevé</span>
+        <span class="l-nav-tag" style="color:var(--mute);font-size:15px">Les comptes de la France · 2026</span>
+      </a>
+      <button id="app-version" type="button" class="l-nav-tag" style="border:1px solid var(--border);background:transparent;color:var(--faint);font-size:11px;font-weight:600;border-radius:999px;padding:2px 7px;letter-spacing:.02em;cursor:pointer" title="Notes de version"></button>
+      <span style="flex:1"></span>
+      <nav aria-label="Sections du site" style="display:flex;gap:4px">
+        <a href="entrees.html" style="padding:7px 14px;border-radius:999px;font-size:14px;color:var(--mute);text-decoration:none">Entrées</a>
+        <a href="sorties.html" style="padding:7px 14px;border-radius:999px;font-size:14px;color:var(--mute);text-decoration:none">Sorties</a>
+        <span aria-current="page" style="padding:7px 14px;border-radius:999px;font-size:14px;font-weight:600;background:var(--ink);color:var(--bg)">Dette</span>
+      </nav>
+    </div>
+  </div>
+
+  <main id="contenu" class="l-pad" style="max-width:1120px;margin:0 auto;padding:56px 32px 96px">
+
+    <nav aria-label="Fil d'Ariane" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;width:100%;font-size:14px;margin:0 0 22px;padding-bottom:14px;border-bottom:1px solid var(--border)">
+      <a href="index.html" title="Accueil — Le Relevé" style="display:flex;align-items:center;gap:6px;color:var(--soft);text-decoration:none;font-weight:600;letter-spacing:-.01em"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" focusable="false" style="display:block"><path d="M8 1.6 1.8 6.7V14a.6.6 0 0 0 .6.6h3.4V10h4.4v4.6h3.4a.6.6 0 0 0 .6-.6V6.7L8 1.6Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg><span>Le Relevé</span></a>
+      <span aria-hidden="true" style="color:var(--faint)">›</span>
+      <span aria-current="page" style="font-weight:700;color:var(--ink);letter-spacing:-.01em">Dette</span>
+    </nav>
+
+    <header style="max-width:780px;animation:atlasIn .5s ease both">
+      <h1 class="l-hero-title" style="margin:0;font-size:52px;line-height:1.04;letter-spacing:-.035em;font-weight:700">L'évolution de la dette</h1>
+      <p id="lead" style="margin:16px 0 0;font-size:19px;line-height:1.55;color:var(--soft);text-wrap:pretty"></p>
+    </header>
+
+    <section class="l-grid-3" id="kpis" aria-label="Chiffres clés" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px"></section>
+
+    <section style="margin-top:44px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:28px 30px 22px">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap">
+        <div style="max-width:560px">
+          <h2 id="chart-title" style="margin:0;font-size:22px;font-weight:700;letter-spacing:-.02em"></h2>
+          <p id="chart-hint" style="margin:8px 0 0;font-size:14px;color:var(--mute);line-height:1.5;text-wrap:pretty"></p>
+        </div>
+        <div id="units" role="group" aria-label="Choisir l'unité" style="display:flex;gap:4px;background:var(--pill);padding:4px;border-radius:999px;flex-shrink:0"></div>
+      </div>
+      <div id="chart" role="img" aria-label="Évolution de la dette publique 1980–2026" style="margin-top:24px"></div>
+      <p id="chart-caveat" style="margin:16px 0 0;font-size:14px;color:var(--soft);line-height:1.6;text-wrap:pretty;border-top:1px solid var(--hair);padding-top:16px"></p>
+      <details style="margin-top:14px">
+        <summary style="cursor:pointer;font-size:13.5px;color:var(--mute);font-weight:600">Voir les données du graphique</summary>
+        <div id="chart-table" style="margin-top:12px;overflow-x:auto"></div>
+      </details>
+    </section>
+
+    <section style="margin-top:20px">
+      <h2 style="margin:0 0 14px;font-size:18px;font-weight:700;letter-spacing:-.02em">Périodes de forte hausse</h2>
+      <div class="l-grid-3" id="spikes" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px"></div>
+      <p style="margin:14px 0 0;font-size:13.5px;color:var(--mute);line-height:1.6;text-wrap:pretty">Les périodes où la dette a le plus augmenté. Les causes sont nombreuses et discutées ; aucun responsable n'est désigné.</p>
+    </section>
+
+    <section style="margin-top:44px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:28px 30px">
+      <h2 style="margin:0;font-size:22px;font-weight:700;letter-spacing:-.02em">Ce que coûtent les intérêts</h2>
+      <p id="interets-lead" style="margin:10px 0 22px;font-size:15px;line-height:1.6;color:var(--soft);max-width:700px;text-wrap:pretty"></p>
+      <div id="interets" style="display:flex;flex-direction:column;gap:11px"></div>
+      <p style="margin:18px 0 0;font-size:13.5px;color:var(--mute);line-height:1.6;text-wrap:pretty">Ce montant dépend de la somme empruntée et du taux. Le taux évolue selon les marchés, hors décisions françaises.</p>
+    </section>
+
+    <section style="margin-top:44px">
+      <h2 style="margin:0 0 6px;font-size:22px;font-weight:700;letter-spacing:-.02em">Ce sur quoi les économistes ne sont pas d'accord</h2>
+      <p style="margin:0 0 16px;font-size:15px;color:var(--soft);line-height:1.6;max-width:720px;text-wrap:pretty">Les montants sont mesurés. Leur signification fait débat. Les deux lectures, sans trancher.</p>
+      <div class="l-grid-2" id="debates" style="display:grid;grid-template-columns:1fr 1fr;gap:14px"></div>
+    </section>
+
+    <section style="margin-top:44px">
+      <h2 style="margin:0 0 16px;font-size:22px;font-weight:700;letter-spacing:-.02em">Questions fréquentes</h2>
+      <div class="l-grid-3" id="faq" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px"></div>
+    </section>
+
+    <footer style="margin-top:36px;font-size:13px;color:var(--mute);line-height:1.6;max-width:840px">
+      <b style="color:var(--soft)">Neutralité.</b> Des montants et leur explication, pas de recommandations. Les lectures contestées sont présentées côte à côte.
+      <br /><br />
+      <b style="color:var(--soft)">Données provisoires.</b> Valeurs de fin d'année (INSEE, Eurostat, Banque de France) ; 2026 est une prévision. Population : 68,6 M (INSEE).
+    </footer>
+  </main>
+</div>
+
+<script src="assets/js/data.js?v=0.8.7"></script>
+<script src="assets/js/version.js?v=0.8.7"></script>
+<script src="assets/js/theme.js?v=0.8.7"></script>
+<script src="assets/js/dette.js?v=0.8.7"></script>
+</body>
+</html>

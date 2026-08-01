@@ -1,0 +1,54 @@
+/* Le Relevé — base thémée (clair/sombre) partagée par toutes les pages.
+   Les styles de mise en page restent inline (fidèles aux maquettes) et
+   référencent ces variables via var(--token), donc réactifs au thème. */
+:root {
+  --bg:#f4f5f7; --surface:#ffffff; --ink:#0d1220; --soft:#5b6172; --mute:#616b79; --faint:#b3b7c2;
+  --border:#e4e6ec; --hair:#eceef2; --pill:#e9ebf0;
+  --blue:#2f5cff; --blue-hover:#1b3fd1; --green:#0f9d6e; --slate:#3c4356; --red:#e0533d; --red-ink:#c0392b; --bar-mute:#d5d9e2;
+  --track:#eef0f4;
+  --topbar:rgba(244,245,247,.86);
+  --inv-surface:#0d1220; --inv-ink:#ffffff; --inv-soft:#b8bdcc; --inv-mute:#9aa0b2; --inv-hair:#262d3f;
+  --mark:#2f5cff;
+}
+:root[data-theme="dark"] {
+  --bg:#0f1115; --surface:#191c22; --ink:#f2f4f8; --soft:#aeb4c1; --mute:#949cac; --faint:#565d6b;
+  --border:#282d38; --hair:#21252f; --pill:#232834;
+  --blue:#7d97ff; --blue-hover:#9fb2ff; --green:#24c08a; --slate:#9aa3b7; --red:#f0745f; --red-ink:#ff8f7a; --bar-mute:#333a49;
+  --track:#232834;
+  --topbar:rgba(15,17,21,.86);
+  --inv-surface:#05070b; --inv-ink:#f2f4f8; --inv-soft:#aeb4c1; --inv-mute:#7c8494; --inv-hair:#20242e;
+  --mark:#2f5cff;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:#0f1115; --surface:#191c22; --ink:#f2f4f8; --soft:#aeb4c1; --mute:#949cac; --faint:#565d6b;
+    --border:#282d38; --hair:#21252f; --pill:#232834;
+    --blue:#7d97ff; --blue-hover:#9fb2ff; --green:#24c08a; --slate:#9aa3b7; --red:#f0745f; --red-ink:#ff8f7a; --bar-mute:#333a49;
+    --track:#232834;
+    --topbar:rgba(15,17,21,.86);
+    --inv-surface:#05070b; --inv-ink:#f2f4f8; --inv-soft:#aeb4c1; --inv-mute:#7c8494; --inv-hair:#20242e;
+  }
+}
+html, body { margin:0; padding:0; background:var(--bg); }
+* { box-sizing:border-box; }
+body { font-family:'Instrument Sans',system-ui,-apple-system,Helvetica,sans-serif; -webkit-font-smoothing:antialiased; color:var(--ink); }
+a { color:var(--blue); text-decoration:none; }
+a:hover { color:var(--blue-hover); text-decoration:underline; }
+input, button { font:inherit; color:inherit; }
+:focus-visible { outline:3px solid var(--blue); outline-offset:2px; border-radius:6px; }
+::selection { background:#d9e2ff; color:#0d1220; }
+.tnum { font-variant-numeric:tabular-nums; }
+.skip-link { position:absolute; left:-9999px; top:0; background:var(--ink); color:var(--bg); padding:10px 16px; border-radius:8px; z-index:50; }
+.skip-link:focus { left:16px; top:16px; text-decoration:none; }
+.theme-toggle { position:fixed; top:12px; right:16px; z-index:40; width:38px; height:38px; border-radius:999px; border:1px solid var(--border); background:var(--surface); color:var(--ink); cursor:pointer; font-size:17px; line-height:1; display:flex; align-items:center; justify-content:center; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+.theme-toggle:hover { border-color:var(--faint); }
+@media (prefers-reduced-motion:reduce) { *, *::before, *::after { animation-duration:.001ms !important; transition-duration:.001ms !important; } }
+@keyframes atlasIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+@media (max-width:860px) {
+  .l-hero-title { font-size:40px !important; }
+  .l-grid-4 { grid-template-columns:1fr 1fr !important; }
+  .l-grid-3 { grid-template-columns:1fr !important; }
+  .l-grid-2 { grid-template-columns:1fr !important; }
+  .l-pad { padding:40px 20px 72px !important; }
+  .l-nav-tag { display:none !important; }
+}

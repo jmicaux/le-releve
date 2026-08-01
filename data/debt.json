@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "year": 2026,
+    "scope": "Dette publique au sens de Maastricht (administrations publiques)",
+    "unit": "EUR",
+    "population": 68600000,
+    "note": "Série de fin d'année INSEE / Banque de France / Eurostat (dette Maastricht). 2025 = 3 460,5 Md€ (115,6 % du PIB). 2026-T1 = 3 536,1 Md€ (117,5 %). Fin 2026 : prévision / estimation ~3 547 Md€ (~118 %). Montants antérieurs à 1999 convertis en euros.",
+    "sources": [
+      "INSEE — Dette des administrations publiques au sens de Maastricht",
+      "INSEE Informations rapides n°78 et n°79 (mars 2026)",
+      "INSEE T1 2026 : 3 536,1 Md€, 117,5 % du PIB",
+      "Cour des comptes — charge de la dette 2026"
+    ]
+  },
+  "stock": {
+    "amount": 3547000000000,
+    "perHab": 51706,
+    "pctPib": 118,
+    "interets2026": 77000000000,
+    "interetsNote": "Charge de la dette (intérêts) ~77 Md€ en 2026 selon la Cour des comptes (+12 Md€ vs 2025). Charge budgétaire de l'État (AFT) : 59,3 Md€."
+  },
+  "series": [
+    { "year": 1980, "amount": 92000000000, "pctPib": 21 },
+    { "year": 1985, "amount": 227000000000, "pctPib": 31 },
+    { "year": 1990, "amount": 363000000000, "pctPib": 36 },
+    { "year": 1995, "amount": 663000000000, "pctPib": 55 },
+    { "year": 2000, "amount": 827000000000, "pctPib": 59 },
+    { "year": 2005, "amount": 1147000000000, "pctPib": 67 },
+    { "year": 2007, "amount": 1212000000000, "pctPib": 64 },
+    { "year": 2008, "amount": 1318000000000, "pctPib": 68 },
+    { "year": 2010, "amount": 1632000000000, "pctPib": 85 },
+    { "year": 2012, "amount": 1869000000000, "pctPib": 91 },
+    { "year": 2015, "amount": 2098000000000, "pctPib": 96 },
+    { "year": 2017, "amount": 2218000000000, "pctPib": 98 },
+    { "year": 2019, "amount": 2380000000000, "pctPib": 97 },
+    { "year": 2020, "amount": 2650000000000, "pctPib": 115 },
+    { "year": 2021, "amount": 2813000000000, "pctPib": 113 },
+    { "year": 2022, "amount": 2950000000000, "pctPib": 111 },
+    { "year": 2023, "amount": 3101000000000, "pctPib": 110 },
+    { "year": 2024, "amount": 3306000000000, "pctPib": 113 },
+    { "year": 2025, "amount": 3460500000000, "pctPib": 115.6 },
+    { "year": 2026, "amount": 3547000000000, "pctPib": 118 }
+  ],
+  "spikes": [
+    {
+      "year": "2008–2010",
+      "title": "Crise financière",
+      "text": "Recapitalisations bancaires, plans de relance, chute des recettes. La dette passe d'environ 1 318 à 1 632 Md€.",
+      "delta": "+314 Md€"
+    },
+    {
+      "year": "2020–2021",
+      "title": "Pandémie",
+      "text": "Chômage partiel, aides aux entreprises, baisses d'activité. Saut du ratio vers 115 % du PIB.",
+      "delta": "+~270 Md€"
+    },
+    {
+      "year": "2023–2026",
+      "title": "Déficits persistants et taux",
+      "text": "Déficits élevés et refinancement à des taux plus hauts : le stock et le coût des intérêts progressent.",
+      "delta": "+~446 Md€"
+    }
+  ],
+  "interetsCompare": [
+    { "label": "Intérêts de la dette (2026)", "value": 77000000000 },
+    { "label": "Budget Justice (État)", "value": 10629346857 },
+    { "label": "Aide publique au développement", "value": 3669036500 }
+  ],
+  "debates": [
+    {
+      "tag": "Lecture A",
+      "title": "La dette finance l'investissement",
+      "points": [
+        "Une partie des emprunts finance des infrastructures, la transition, la défense.",
+        "Avec une croissance nominale supérieure aux taux, le ratio dette/PIB peut se stabiliser.",
+        "Les taux longs restent gérables tant que la confiance des marchés tient."
+      ]
+    },
+    {
+      "tag": "Lecture B",
+      "title": "La dette pèse sur les marges de manœuvre",
+      "points": [
+        "Environ 77 Md€ d'intérêts en 2026, c'est autant de moins pour d'autres politiques.",
+        "Un choc de taux ou de croissance rend le ratio plus difficile à maîtriser.",
+        "Les règles européennes et la notation souveraine limitent les options."
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "q": "Qui détient la dette française ?",
+      "a": "Environ la moitié est détenue par des non-résidents ; le reste par des banques, assureurs et fonds français, et la Banque de France via l'Eurosystème."
+    },
+    {
+      "q": "La France rembourse-t-elle le capital ?",
+      "a": "Comme la plupart des États, elle refinance : elle emprunte pour rembourser les échéances et pour financer le déficit de l'année. Le stock ne diminue que si les excédents le permettent."
+    },
+    {
+      "q": "Pourquoi ~118 % du PIB ?",
+      "a": "C'est le ratio dette publique / PIB (définition Maastricht). Fin 2025 : 115,6 % (3 460,5 Md€). Fin T1 2026 : 117,5 % (3 536,1 Md€). La prévision de fin 2026 tourne autour de 118 %."
+    }
+  ]
+}

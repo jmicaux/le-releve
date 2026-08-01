@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Le Relevé — Entrées · 2026</title>
+  <meta name="description" content="D'où vient l'argent public en 2026 : les sources d'entrées de l'État et de toutes les administrations, du grand poste au détail." />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f4f5f7" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)" />
+  <script>
+    (function () {
+      try {
+        var q = new URLSearchParams(location.search).get("theme");
+        var t = q === "dark" || q === "light" ? q : localStorage.getItem("atlas-theme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%232f5cff'/%3E%3Ctext x='50' y='73' font-size='64' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'%3E%E2%82%AC%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/css/base.css?v=0.8.7" />
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Basculer le thème">☾</button>
+
+<div style="min-height:100vh">
+
+  <div style="position:sticky;top:0;z-index:20;background:var(--topbar);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)">
+    <div style="max-width:1120px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;gap:16px">
+      <a href="index.html" style="display:flex;align-items:center;gap:9px;text-decoration:none;color:inherit">
+        <span aria-hidden="true" style="width:22px;height:22px;border-radius:7px;background:var(--mark);color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center">€</span>
+        <span style="font-weight:600;font-size:15px;letter-spacing:-.01em">Le Relevé</span>
+        <span class="l-nav-tag" style="color:var(--mute);font-size:15px">Les comptes de la France · 2026</span>
+      </a>
+      <button id="app-version" type="button" class="l-nav-tag" style="border:1px solid var(--border);background:transparent;color:var(--faint);font-size:11px;font-weight:600;border-radius:999px;padding:2px 7px;letter-spacing:.02em;cursor:pointer" title="Notes de version"></button>
+      <span style="flex:1"></span>
+      <nav aria-label="Sections du site" style="display:flex;gap:4px">
+        <span aria-current="page" style="padding:7px 14px;border-radius:999px;font-size:14px;font-weight:600;background:var(--ink);color:var(--bg)">Entrées</span>
+        <a href="sorties.html" style="padding:7px 14px;border-radius:999px;font-size:14px;color:var(--mute);text-decoration:none">Sorties</a>
+        <a href="dette.html" style="padding:7px 14px;border-radius:999px;font-size:14px;color:var(--mute);text-decoration:none">Dette</a>
+      </nav>
+    </div>
+  </div>
+
+  <main id="contenu" class="l-pad" style="max-width:1120px;margin:0 auto;padding:56px 32px 96px">
+
+    <nav id="breadcrumb" aria-label="Fil d'Ariane" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;width:100%;font-size:14px;margin:0 0 22px;padding-bottom:14px;border-bottom:1px solid var(--border)"></nav>
+
+    <header style="max-width:760px;animation:atlasIn .5s ease both">
+      <h1 class="l-hero-title" style="margin:0;font-size:52px;line-height:1.04;letter-spacing:-.035em;font-weight:700">Le relevé des entrées</h1>
+      <p id="lead" style="margin:16px 0 0;font-size:19px;line-height:1.55;color:var(--soft);text-wrap:pretty"></p>
+    </header>
+
+    <section id="kpis" class="l-grid-2" aria-label="Chiffres clés" style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px"></section>
+
+    <section style="margin-top:44px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap">
+        <h2 id="band-title" style="margin:0;font-size:22px;font-weight:700;letter-spacing:-.02em"></h2>
+        <p style="margin:0;font-size:14px;color:var(--mute)">Survolez une part pour la nommer</p>
+      </div>
+      <div id="band" style="margin-top:16px;display:flex;gap:3px;height:64px;border-radius:14px;overflow:hidden;background:var(--pill)"></div>
+      <p id="band-sentence" style="margin:14px 0 0;font-size:15px;color:var(--soft);line-height:1.6;text-wrap:pretty"></p>
+    </section>
+
+    <section style="margin-top:48px">
+      <div style="display:flex;align-items:center;justify-content:flex-end;gap:12px;flex-wrap:wrap">
+        <label style="display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:8px 16px;min-width:260px;flex:0 1 320px">
+          <span aria-hidden="true" style="color:var(--mute);font-size:14px">⌕</span>
+          <input id="query" type="search" placeholder="Filtrer par nom…" aria-label="Filtrer les sources par nom" style="border:0;outline:0;background:transparent;font-size:14px;width:100%;color:var(--ink)" />
+        </label>
+      </div>
+      <div id="backbar"></div>
+      <p id="count" style="margin:18px 0 0;font-size:14px;color:var(--mute)"></p>
+      <div id="rows" style="margin-top:14px;display:flex;flex-direction:column;gap:8px"></div>
+      <p id="empty" hidden style="margin:24px 0 0;font-size:15px;color:var(--mute)">Aucune ligne ne correspond à ce filtre.</p>
+    </section>
+
+    <section style="margin-top:52px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:28px 30px">
+      <h2 style="margin:0;font-size:17px;font-weight:700;letter-spacing:-.02em">Entrées, sorties, et ce qui manque</h2>
+      <p id="solde-sentence" style="margin:10px 0 22px;font-size:15px;line-height:1.6;color:var(--soft);max-width:660px;text-wrap:pretty"></p>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:center;gap:14px">
+          <span style="width:88px;font-size:13px;color:var(--mute);flex-shrink:0">Entrées</span>
+          <span style="flex:1;min-width:0;display:block"><span id="s-in" style="display:block;height:30px;border-radius:9px;background:var(--green);width:0"></span></span>
+          <span id="v-in" class="tnum" style="font-size:14px;font-weight:700;white-space:nowrap;width:96px;text-align:right;flex-shrink:0">—</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px">
+          <span style="width:88px;font-size:13px;color:var(--mute);flex-shrink:0">Sorties</span>
+          <span style="flex:1;min-width:0;display:block"><span id="s-out" style="display:block;height:30px;border-radius:9px;background:var(--bar-mute);width:0"></span></span>
+          <span id="v-out" class="tnum" style="font-size:14px;font-weight:700;white-space:nowrap;width:96px;text-align:right;flex-shrink:0">—</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px">
+          <span style="width:88px;font-size:13px;color:var(--mute);flex-shrink:0">Manquant</span>
+          <span style="flex:1;min-width:0;display:block"><span id="s-gap" style="display:block;height:30px;border-radius:9px;background:var(--red);width:0"></span></span>
+          <span id="v-gap" class="tnum" style="font-size:14px;font-weight:700;white-space:nowrap;color:var(--red-ink);width:96px;text-align:right;flex-shrink:0">—</span>
+        </div>
+      </div>
+    </section>
+
+    <footer style="margin-top:36px;font-size:13px;color:var(--mute);line-height:1.6;max-width:780px">
+      <b style="color:var(--soft)">Données provisoires.</b> Ordres de grandeur saisis à la main : proportions justes, décimales non garanties. Population : 68,6 M (INSEE).
+    </footer>
+  </main>
+</div>
+
+<script src="assets/js/data.js?v=0.8.7"></script>
+<script src="assets/js/version.js?v=0.8.7"></script>
+<script src="assets/js/theme.js?v=0.8.7"></script>
+<script src="assets/js/entrees.js?v=0.8.7"></script>
+</body>
+</html>
