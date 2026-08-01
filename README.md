@@ -9,6 +9,8 @@ backend : des fichiers statiques et des données officielles 2026 embarquées.
 
 **🔗 Aperçu en ligne : [jmicaux.github.io/le-releve](https://jmicaux.github.io/le-releve/)**
 
+![Le Relevé — le relevé des sorties : où va l'argent public, de la plus grosse fonction à la plus petite](lereleve-screenshot.png)
+
 Si cette app te plaît, tu peux la soutenir :
 
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy_me_a_coffee-ffdd00?style=flat-square&logo=buymeacoffee&logoColor=1a1a1a)](https://buymeacoffee.com/jmicaux)
