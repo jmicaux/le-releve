@@ -13,8 +13,8 @@ Si cette app te plaît, tu peux la soutenir :
 
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy_me_a_coffee-ffdd00?style=flat-square&logo=buymeacoffee&logoColor=1a1a1a)](https://buymeacoffee.com/jmicaux)
 
-> Prototype orienté **expérience visuelle** (façon Apple Health / Linear) plutôt que
-> portail Open Data. Vanilla JS, zéro dépendance runtime (hors ECharts pour les graphiques).
+> Prototype orienté **expérience visuelle** plutôt que portail Open Data. Vanilla JS,
+> zéro dépendance runtime (hors ECharts pour les graphiques).
 
 ## Fonctionnalités
 
